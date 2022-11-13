@@ -32,7 +32,7 @@
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   --fontFamily-serif: "Merriweather", "Georgia", Cambria, "Times New Roman",
     Times, serif;
-  --font-body: var(--fontFamily-serif);
+  --font-body: var(--fontFamily-sans);
   --font-heading: var(--fontFamily-sans);
   --fontWeight-normal: 400;
   --fontWeight-medium: 500;
@@ -231,8 +231,32 @@ table {
   border-spacing: 0.25rem;
 }
 
-table thead tr th {
-  border-bottom: 1px solid var(--color-accent);
+table, thead {
+  border: 1px solid var(--color-text);
+}
+
+td, th {
+  border-bottom: 1px dotted var(--color-text);
+  border-right: 1px dotted var(--color-text);
+}
+
+details {
+  border: 1px solid var(--color-text);
+  padding-left: 40px;
+  padding-right: 40px;
+}
+details[open] > summary {
+  padding-bottom: 20px;
+}
+
+.blog-post code {
+  background-color: var(--color-text-light) !important;
+  color: var(--color-text) !important;
+  text-shadow:0px 0px !important;
+  padding-left: calc(var(--fontSize-1)/2) !important;
+  padding-right: calc(var(--fontSize-1)/2) !important;
+  margin-left: calc(var(--fontSize-1)/2) !important;
+  margin-right: calc(var(--fontSize-1)/2) !important;
 }
 
 /* Link */
@@ -339,3 +363,24 @@ a:focus {
     list-style-position: inside;
   }
 }
+
+
+/* （親要素の幅を無視して）画面幅最大まで要素を広げる refer to https://ponsyon.com/archives/4660 */
+.max-width {
+  width: 98vw;
+  margin: 0 calc(50% - 49vw);
+}
+
+.backpack-table /* 2列目のスタイル */
+  table
+    tr
+      td:nth-of-type(1) {
+        width: 7%;
+        /* height: 20%;  */
+}
+.backpack-table table tr td:nth-of-type(6)::first-line,
+.backpack-table table tr td:nth-of-type(7)::first-line,
+.backpack-table table tr td:nth-of-type(9)::first-line {
+  font-weight: 900;
+  line-height: 3em;
+      }
