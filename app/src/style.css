@@ -383,4 +383,13 @@ a:focus {
 .backpack-table table tr td:nth-of-type(9)::first-line {
   font-weight: 900;
   line-height: 3em;
-      }
+}
+
+/* refer to https://rainbow-engine.com/html-header-scroll-fix/ */
+.backpack-table table tr th{
+    background:#333;
+    position: -webkit-sticky; /* for Safari */
+    position: sticky; /* for others (e.g. Chrome, Firefox) */
+    top: 0;
+    z-index: 2;
+}
